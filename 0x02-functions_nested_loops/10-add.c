@@ -1,6 +1,9 @@
 #include "main.h"
 /**
- * add: adds two digits
+ * add - entry point
+ *
+ *Description: function that adds two integers and
+ * returns the result.
  *
  * @a: first int
  * @b: second int
