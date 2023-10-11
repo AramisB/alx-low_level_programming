@@ -5,7 +5,7 @@
  * @a: first int
  * @b: second int
  *
- * Returns: sum
+ * Return: sum
  */
 int add(int a, int b)
 {
