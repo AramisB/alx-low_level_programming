@@ -1,19 +1,25 @@
 #include "main.h"
+
+
 /**
- * add: entry point
+ * add - entry point
  *
- * Description: adds two integers and returns the result.
+ *Description: function that adds two integers and
+ * returns the result.
  *
- * @a: first int
- * @b: second int
+ * @a: integer on
+ * @b: integer two
  *
- * Return: sum
+ * Return:sum.
+ *
  */
+
+
 int add(int a, int b)
 {
 	int sum;
 
-	sum = a + b;
 
+	sum = a + b;
 	return (sum);
 }
