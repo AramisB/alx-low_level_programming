@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- *  * print_line - draws a straight line
- *   *
- *    * @n: length of line
- *     * Return: void
- *      */
+ * print_line - draws a straight line
+ * 
+ * @n: length of line
+ * Return: void
+ */
 void print_line(int n)
 {
 	if (n <= 0)
