@@ -5,7 +5,7 @@
  * @a: first integer
  * @b: second integer
  *
- * Return: product 
+ * Return: a * b 
  *
  */
 int mul(int a, int b)
