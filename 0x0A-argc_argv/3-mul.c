@@ -7,11 +7,24 @@
  * @argv: arrays
  *
  * Return: Always 0(success)
+ *
  */
 int main(int argc, char *argv[])
 {
-	(void)argv;
+	int i;
+	int j;
+	int mul;
 
-	printf("argc = %d\n", argc - 1);
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	i = atoi(argv[1]);
+	j = atoi(argv[2]);
+
+	mul = i * j;
+	printf("%d\n", mul);
+
 	return (0);
 }

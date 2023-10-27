@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * main - entry point
+ * main - enttry point
  *
  * @argc: argument count
  * @argv: arrays
@@ -10,8 +10,11 @@
  */
 int main(int argc, char *argv[])
 {
-	(void)argv;
+	int i;
 
-	printf("argc = %d\n", argc - 1);
+	for (i = 0; i < argc; i++)
+	{
+		printf("%s\n", argv[i]);
+	}
 	return (0);
 }
