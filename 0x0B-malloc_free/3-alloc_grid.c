@@ -2,50 +2,44 @@
 #include <stdlib.h>
 
 /**
- * str_concat - Concatenate two strings.
- * @s1: The first string to concatenate.
- * @s2: The second string to concatenate.
+ * alloc_grid - creates a 2-dimensional grid of integers
+ * @width: width of the grid
+ * @height: height of the grid
  *
- * Return: A pointer to the concatenated string or NULL on failure.
+ * Return: pointer to the 2-dimensional array
  */
-char *str_concat(char *s1, char *s2)
+int **alloc_grid(int width, int height)
 {
-	char *conct;
-	int i, ci;
+    int **mee;
+    int x, y;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
+    if (width <= 0 || height <= 0)
+        return (NULL);
 
-	i = ci = 0;
+    mee = malloc(sizeof(int *) * height);
 
-	while (s1[i] != '\0')
-		i++;
+    if (mee == NULL)
+        return (NULL);
 
-	while (s2[ci] != '\0')
-		ci++;
+    for (x = 0; x < height; x++)
+    {
+        mee[x] = malloc(sizeof(int) * width);
 
-	conct = malloc(sizeof(char) * (i + ci + 1));
+        if (mee[x] == NULL)
+        {
+            for (; x >= 0; x--)
+                free(mee[x]);
 
-	if (conct == NULL)
-		return (NULL);
+            free(mee);
+            return (NULL);
+        }
+    }
 
-	i = ci = 0;
+    for (x = 0; x < height; x++)
+    {
+        for (y = 0; y < width; y++)
+            mee[x][y] = 0;
+    }
 
-	while (s1[i] != '\0')
-	{
-		conct[i] = s1[i];
-		i++;
-	}
-
-	while (s2[ci] != '\0')
-	{
-		conct[i] = s2[ci];
-		i++, ci++;
-	}
-
-	conct[i] = '\0';
-
-	return (conct);
+    return (mee);
 }

@@ -1,51 +1,22 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * str_concat - Concatenate two strings.
- * @s1: The first string to concatenate.
- * @s2: The second string to concatenate.
+ * free_grid - frees a 2D array
+ * @grid: 2D grid to be freed
+ * @height: height dimension of the grid
  *
- * Return: A pointer to the concatenated string or NULL on failure.
+ * Description: This function frees the memory allocated for the 2D grid.
  */
-char *str_concat(char *s1, char *s2)
+void free_grid(int **grid, int height)
 {
-	char *conct;
-	int i, ci;
+    int i;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
+    for (i = 0; i < height; i++)
+    {
+        free(grid[i]);
+    }
 
-	i = ci = 0;
-
-	while (s1[i] != '\0')
-		i++;
-
-	while (s2[ci] != '\0')
-		ci++;
-
-	conct = malloc(sizeof(char) * (i + ci + 1));
-
-	if (conct == NULL)
-		return (NULL);
-
-	i = ci = 0;
-
-	while (s1[i] != '\0')
-	{
-		conct[i] = s1[i];
-		i++;
-	}
-
-	while (s2[ci] != '\0')
-	{
-		conct[i] = s2[ci];
-		i++, ci++;
-	}
-
-	conct[i] = '\0';
-
-	return (conct);
+    free(grid);
 }

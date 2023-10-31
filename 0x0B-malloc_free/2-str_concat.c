@@ -1,32 +1,52 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * _strdup - Duplicate a string in a new memory location.
- * @str: The string to duplicate.
+ * str_concat - concatenate two strings
+ * @s1: first string to concatenate
+ * @s2: second string to concatenate
  *
- * Return: A pointer to the duplicated string, or NULL on failure.
+ * Return: concatenated string or NULL on failure
  */
-char *_strdup(char *str)
+char *str_concat(char *s1, char *s2)
 {
-	char *aaa;
-	int i, r = 0;
+    char *concat;
+    int i, ci;
 
-	if (str == NULL)
-		return (NULL);
+    if (s1 == NULL)
+        s1 = "";
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
+    if (s2 == NULL)
+        s2 = "";
 
-	aaa = malloc(sizeof(char) * (i + 1));
+    i = ci = 0;
 
-	if (aaa == NULL)
-		return (NULL);
+    while (s1[i] != '\0')
+        i++;
 
-	for (r = 0; str[r]; r++)
-		aaa[r] = str[r];
+    while (s2[ci] != '\0')
+        ci++;
 
-	return (aaa);
+    concat = malloc(sizeof(char) * (i + ci + 1));
+
+    if (concat == NULL)
+        return (NULL);
+
+    i = ci = 0;
+
+    while (s1[i] != '\0')
+    {
+        concat[i] = s1[i];
+        i++;
+    }
+
+    while (s2[ci] != '\0')
+    {
+        concat[i] = s2[ci];
+        i++, ci++;
+    }
+
+    concat[i] = '\0';
+
+    return (concat);
 }
