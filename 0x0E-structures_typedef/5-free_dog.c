@@ -3,7 +3,7 @@
 #include <stdlib.h>
 /**
  * free_dog - a fxn that frees sog
- * @dog_t: dog to be freed
+ *
  * @d:pointer to dog_t
  *
  */
