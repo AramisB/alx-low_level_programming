@@ -1,9 +1,11 @@
 #include <stdio.h>
-/*
- * main - prints name of file
+
+/**
+ * main - Entry point of the program
  *
- * Returns - Always 0(success)
+ * This function prints the name of the source file.
  *
+ * Return: Always 0 (success)
  */
 int main(void)
 {
