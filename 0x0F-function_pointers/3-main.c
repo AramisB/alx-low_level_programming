@@ -1,3 +1,4 @@
+#include "function_pointers.h"
 #include "3-calc.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -17,7 +18,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 
 	num1 = atoi(argv[1]);

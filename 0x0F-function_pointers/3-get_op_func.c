@@ -1,8 +1,6 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
+#include <stdio.h>
 /**
  * get_op_func -selects appropriate function to perform
  * @s: operator as a string
@@ -20,14 +18,16 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
+	int i = 0;
 
-	for (i = 0; ops[i].op; i++) 
+	while (ops[i].op != NULL)
 	{
-		if (strcmp(s, ops[i].op) == 0) 
+		if (*(ops[i].op) == *s && s[1] == '\0')
 		{
-			return ops[i].f;
-				      }
+			return (ops[i].f);
+		}
+		i++;
 	}
-	return NULL;
+	printf("Error\n");
+	return (NULL);
 }
