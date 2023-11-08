@@ -8,14 +8,12 @@
  * @argv: array of strings containing the string
  * Return: nothing
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int (*operation)(int, int);
 	int num1;
 	char *op;
 	int num2;
-	int result;
-
+	
 	if (argc != 4)
 	{
 		printf("Error\n");
@@ -26,15 +24,17 @@ int main(int argc, char *argv[])
 	op = argv[2];
 	num2 = atoi(argv[3]);
 
-	operation = get_op_func(op);
-
-	if (!operation)
+	if (get_op_func(op) == NULL || op[1] != '\0')
 	{
 		printf("Error\n");
-		return (99);
+		exit(99);
 	}
-
-	result = operation(num1, num2);
-	printf("%d\n", result);
+	if ((*op == '/' && num2 == 0) || (*op == '%' && num2 == 0))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	printf("%d\n", get_op_func(op)(num1, num2));
 	return (0);
+
 }
