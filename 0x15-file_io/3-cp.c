@@ -1,17 +1,17 @@
 #include "main.h"
 
 /**
- * main - copies contents of one file to another
+ * main - Copies contents of one file to another.
  *
- * @argc: number of arguments
- * @argv: string argument
+ * @argc: Number of arguments.
+ * @argv: String argument.
  *
- * Return: 0 (success)
+ * Return: 0 (success).
  */
 int main(int argc, char *argv[])
 {
     int file_from, file_to;
-    int number1 = 1024, number2 = 0;
+    int number1, number2;
     char buff[1024];
 
     if (argc != 3)
@@ -27,17 +27,17 @@ int main(int argc, char *argv[])
         exit(98);
     }
 
-    file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+    file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC,
+		    S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
     if (file_to == -1)
     {
         dprintf(STDERR_FILENO, "Can't write to %s\n", argv[2]);
         exit(99);
     }
 
-    while (number1 == 1024)
+    do
     {
-        number1 = read(file_from, buff, 1024);
-
+        number1 = read(file_from, buff, sizeof(buff));
         if (number1 == -1)
         {
             dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -45,13 +45,12 @@ int main(int argc, char *argv[])
         }
 
         number2 = write(file_to, buff, number1);
-
         if (number2 < number1)
         {
             dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
             exit(99);
         }
-    }
+    } while (number1 > 0);
 
     if (close(file_from) == -1)
     {
