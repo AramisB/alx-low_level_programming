@@ -37,13 +37,13 @@ int mul(int a, int b)
 }
 
 /**
- * div - a function that divides two numbers
+ * divide - a function that divides two numbers
  * @a: first number
  * @b: second number
  *
  * Return: the quotient
  */
-int div_op(int a, int b)
+int divide(int a, int b)
 {
 	if (b == 0)
 	{
